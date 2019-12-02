@@ -29,6 +29,10 @@ public struct FCMError: Error, Decodable {
     public let errorCode: ErrorCode
 
     public enum ErrorCode: String, Decodable {
+        case unableToGetAccesstoken = "UNABLE_TO_GET_ACCESSTOKEN"
+        case unableToParseAccesstoken = "UNABLE_TO_PARSE_ACCESSTOKEN"
+        case unableToGenerateJWTToken = "UNABLE_TO_GENERATE_JWT_TOKEN"
+        case emptyBodyResponse = "EMPTY_BODY_RESPONSE"
         case unspecified = "UNSPECIFIED_ERROR"
         case invalid = "INVALID_ARGUMENT"
         case unregistered = "UNREGISTERED"
