@@ -1,13 +1,11 @@
 import Vapor
 import Foundation
-import JWT
-import Crypto
+import JWTKit
+import CryptoKit
 
 // MARK: Service
 
-public protocol FCMProvider: Service {
-    func sendMessage(_ client: Client, message: FCMMessageDefault) throws -> Future<String>
-}
+public protocol FCMProvider{}
 
 // MARK: Engine
 
