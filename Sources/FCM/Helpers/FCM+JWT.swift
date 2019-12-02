@@ -1,15 +1,16 @@
 import Foundation
-import Crypto
-import JWT
+import CryptoKit
+import JWTKit
 
 extension FCM {
     func generateJWT() throws -> String {
         gAuthPayload.update()
-        let pk = try RSAKey.private(pem: key)
+        let pk = try RSAKey.private(pem: key.data(using: .utf8)!)
         let signer = JWTSigner.rs256(key: pk)
         let jwt = JWT<GAuthPayload>(payload: gAuthPayload)
         let jwtData = try jwt.sign(using: signer)
-        return String(data: jwtData, encoding: .utf8)!
+        let data = Data(jwtData)
+        return String(data: data, encoding: .utf8)!
     }
     
     func getJWT() throws -> String {
