@@ -1,4 +1,4 @@
-import JWT
+import JWTKit
 import Foundation
 
 class GAuthPayload: JWTPayload {
